@@ -32,7 +32,16 @@ class LinkedList {
         if(!this.head) return undefined
         let temp = this.head
         let pre = this.head
-        while(this.head.nex)
+        while(this.head.next){
+            pre = temp 
+            temp = this.head.next
+        }
+        this.length--
+        if(this.length===0){
+            this.head = null
+            this.tail = null
+        }
+        return temp
     }
 }
 

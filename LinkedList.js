@@ -60,6 +60,18 @@ class LinkedList {
         this.length++
         return this 
     }
+    shift(){
+        if(!this.head) return undefined
+        let temp = this.head
+        this.head = this.head.next
+        this.length--
+        if(this.length===0){
+            this.head = null
+            this.tail = null
+        }
+        return temp
+        
+    }
 }
 
 

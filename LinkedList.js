@@ -1,4 +1,4 @@
-class Node {
+/* class Node {
     constructor(value){
         this.value = value
         this.next = null
@@ -134,3 +134,4 @@ class LinkedList {
 const myLinkedList = new LinkedList(11)
 
 
+ */

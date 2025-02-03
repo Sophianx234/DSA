@@ -1,44 +1,54 @@
 class Node {
-    constructor(value){
-        this.value = value
-        this.left = null
-        this.right = null
-    }
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
 }
-
 
 class BST {
-    constructor(){
-        this.root = null
+  constructor() {
+    this.root = null;
+  }
+
+  inset(value) {
+    const newNode = new Node(value);
+    if (!this.root) {
+      this.root = newNode;
+      return this;
     }
-
-    inset(value){
-        const newNode = new Node(value)
-        if(!this.root){
-            this.root = newNode
-            return this
+    let temp = this.root;
+    while (true) {
+      if (newNode.value < temp.value) {
+        if (temp.left === null) {
+          temp.left = newNode;
+          return this;
         }
-        let temp = this.root
-        while(true){
-            if(newNode.value < temp.value){
-                if(temp.left === null){
-                    temp.left = newNode
-                    return this
-
-                }
-                temp = temp.left
-            }else{
-                if(temp.right === null){
-                    temp.right = newNode
-                    return this
-                }
-                temp = temp.right
-            }
+        temp = temp.left;
+      } else {
+        if (temp.right === null) {
+          temp.right = newNode;
+          return this;
         }
-
-
+        temp = temp.right;
+      }
     }
+  }
+
+  contains(value) {
+    if (!this.root) return undefined;
+    let temp = this.root;
+    while (temp) {
+      if (value < temp.value) {
+        temp = temp.left;
+      } else if (value > temp.value) {
+        temp = temp.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
-
-const bst = new BST()
+const bst = new BST();

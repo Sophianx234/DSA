@@ -10,9 +10,9 @@ class BST {
   constructor() {
     this.root = null;
   }
-
   inset(value) {
     const newNode = new Node(value);
+
     if (!this.root) {
       this.root = newNode;
       return this;
@@ -23,27 +23,30 @@ class BST {
         if (temp.left === null) {
           temp.left = newNode;
           return this;
+        } else {
+          temp = temp.left;
         }
-        temp = temp.left;
       } else {
-        if (temp.right === null) {
-          temp.right = newNode;
-          return this;
+        if (newNode.value > temp.value) {
+          if (temp.right === null) {
+            temp.right = newNode;
+            return this;
+          } else {
+            temp = temp.right;
+          }
         }
-        temp = temp.right;
       }
     }
   }
-
   contains(value) {
-    if (!this.root) return undefined;
+    if (!this.root) return false;
     let temp = this.root;
     while (temp) {
       if (value < temp.value) {
         temp = temp.left;
       } else if (value > temp.value) {
         temp = temp.right;
-      } else {
+      } else if (value === temp.value) {
         return true;
       }
     }

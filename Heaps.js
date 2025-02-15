@@ -127,3 +127,4 @@ class Heap {
 }
 
 const h = new Heap();
+h.set(20)

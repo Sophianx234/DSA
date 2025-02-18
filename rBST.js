@@ -73,8 +73,8 @@ class BST {
 
     const traverse = (currentNode) => {
       results.push(currentNode.value);
-      if (currentNode.left) return traverse(currentNode.left);
-      if (currentNode.right) return traverse(currentNode.right);
+      if (currentNode.left)  traverse(currentNode.left);
+      if (currentNode.right)  traverse(currentNode.right);
     };
     traverse(this.root);
     return results 
@@ -82,3 +82,11 @@ class BST {
 }
 
 const bt = new BST(60);
+
+bt.inset(47)
+bt.inset(21)
+bt.inset(76)
+bt.inset(18)
+bt.inset(27)
+bt.inset(52)
+bt.inset(82)

@@ -33,7 +33,7 @@ class Queue {
         if(!this.first) return undefined
         let temp = this.first
         this.first = temp.next
-        temp.next = null
+        temp.next == null
         this.length--
         if(this.length===0){
             this.first = null

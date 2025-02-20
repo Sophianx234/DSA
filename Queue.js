@@ -35,7 +35,7 @@ class Queue {
         this.first = temp.next
         temp.next == null
         this.length--
-        if(this.length===0){
+        if(this.length====0){
             this.first = null
             this.last = null
         }
